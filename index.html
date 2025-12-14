@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KESGEN BLADES</title>
+  <meta name="description"
+    content="KESGEN BLADES designs and manufactures reliable folding knives for everyday carry and tactical use. Titanium construction, ambidextrous operation, and a robust lock mechanism engineered for durability and performance.">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest" />
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="12152d24-1cd0-44aa-bfb4-ba73fbd2600e"></script>
+  <style>
+    :root {
+      --container: 1100px;
+      --narrow: 900px;
+      --white: #fff;
+      --black: #000;
+      --dim: rgba(255, 255, 255, .88);
+      --dim-2: rgba(255, 255, 255, .6);
+      --line: rgba(255, 255, 255, .08);
+      --line-strong: rgba(255, 255, 255, .35);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Containers / layout utilities */
+    .wrap,
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+
+    .pad-h {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .section {
+      padding: 80px 0 60px;
+    }
+
+    .narrow {
+      max-width: var(--narrow);
+      margin: 0 auto;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Header */
+    header {
+      background: var(--black);
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 34px;
+      display: block;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      left: 28px;
+      bottom: 28px;
+      background: rgba(0, 0, 0, .45);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      max-width: 50%;
+    }
+
+    .hero-overlay h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: .4px;
+    }
+
+    /* Specs floating panel */
+    #specs-toggle {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      background: var(--black);
+      border: 1px solid var(--line-strong);
+      color: var(--white);
+      padding: 6px 10px;
+      border-radius: 6px 0 0 6px;
+      font-size: 13px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .specs-panel {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      width: 220px;
+      background: rgba(0, 0, 0, .95);
+      border-left: 1px solid var(--line);
+      padding: 10px 14px 12px;
+      z-index: 4;
+      transform: translateX(100%);
+      transition: transform .25s ease-out;
+    }
+
+    .specs-panel.open {
+      transform: translateX(0);
+    }
+
+    .specs-panel h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .specs-panel ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .specs-panel li::before {
+      content: "• ";
+    }
+
+    .unit-toggle {
+      margin-top: 8px;
+      padding: 4px 8px;
+      background: var(--black);
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: var(--white);
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* About */
+    .about {
+      background: var(--black);
+    }
+
+    .about-inner {
+      max-width: var(--narrow);
+      margin: 0 auto;
+      padding: 0 20px;
+      font-size: 22px;
+      line-height: 1.6;
+      color: var(--dim);
+      letter-spacing: .2px;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .raillock .inner {
+      max-width: var(--narrow);
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .raillock h2 {
+      font-size: 28px;
+      margin: 0 0 12px;
+    }
+
+    .raillock p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--dim);
+    }
+
+    .rl-media {
+      display: block;
+      width: 100%;
+      max-width: 640px;
+      margin: 16px auto;
+      border-radius: var(--radius);
+      background: #111;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+
+    /* Subscribe */
+    .subscribe-wrap {
+      max-width: 532px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      max-width: var(--container);
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+
+    .contact h4 {
+      margin: 0 0 6px;
+    }
+
+    .contact p {
+      margin: 0;
+      color: var(--dim-2);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding: 18px 20px;
+    }
+
+    footer .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer small {
+      color: rgba(255, 255, 255, .4);
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .8);
+      text-decoration: none;
+      font-size: 14px;
+      transition: opacity .2s;
+    }
+
+    .footer-links a:hover {
+      opacity: .6;
+    }
+
+    .footer-logo {
+      height: 26px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero img {
+        height: 300px;
+      }
+
+      .hero-overlay {
+        left: 16px;
+        right: 16px;
+        bottom: 20px;
+        max-width: 100%;
+        padding: 10px 12px;
+      }
+
+      .hero-overlay h1 {
+        font-size: 20px;
+      }
+
+      .about {
+        padding: 56px 0 48px;
+      }
+
+      .about-inner {
+        font-size: 20px;
+        line-height: 1.55;
+      }
+
+      .raillock h2 {
+        font-size: 22px;
+      }
+
+      .raillock p {
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .rl-media {
+        max-width: 100%;
+      }
+    }
+
+    .highlight {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap pad-h">
+      <div class="logo">
+        <img src="img/logo.svg" alt="Kesgen Blades">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="img/carnivore.avif" alt="Carnivore">
+      <div class="hero-overlay">
+        <h1>Carnivore — with RailLock</h1>
+      </div>
+
+      <section class="specs-floating">
+        <button id="specs-toggle">Specs</button>
+        <div class="specs-panel" id="specs-panel">
+          <h4>Specs</h4>
+          <ul id="spec-list">
+            <li>Blade — <span data-mm="89">89</span> mm</li>
+            <li>Cutting edge — <span data-mm="79">79</span> mm</li>
+            <li>Handle — <span data-mm="113">113</span> mm</li>
+            <li>Overall — <span data-mm="202">202</span> mm</li>
+          </ul>
+          <button id="unit-toggle" class="unit-toggle">Show in inches</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="about section">
+      <div class="about-inner">
+        <p>Kesgen [ˈkɛsɡɛn] means “cutting” — as an adjective — in my native language. It defines the purpose of every knife since the Stone Age.</p>
+        
+        <p>My name is Kazim. I’m a software engineer and independent folding-knife designer/maker based in Berlin, originally from the Caucasus region of Russia.</p>
+        
+        <p>I began working on folding knives and locking mechanisms in 2024, testing my designs and making prototypes. This work led me to develop the RailLock — a solid blade-locking design that I’m currently refining and moving toward professional production.</p>
+
+      </div>
+    </section>
+
+    <section class="raillock">
+      <div class="inner">
+        <img class="rl-media" src="img/raillock.gif" alt="RailLock demo" loading="lazy">
+        <p>&nbsp;</p>
+        <p class="highlight">I'm open for collaborations if you want to try the RailLock mechanism in your own projects. Just hit me up by email.</p>
+        <p>&nbsp;</p>
+      </div>
+    </section>
+
+    <section class="subscribe-wrap">
+      <script async src="https://eomail5.com/form/5fbe66ee-bda0-11f0-97ee-dd93b6b4c7e7.js"
+        data-form="5fbe66ee-bda0-11f0-97ee-dd93b6b4c7e7"></script>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small>© 2025, Kesgen Blades</small>
+      <div class="footer-links">
+        <a href="https://instagram.com/kesgenblades" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:kazim@kesgen.com">Email</a>
+        <img src="img/logo.svg" alt="Kesgen Blades" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Fill initial mm values
+    document.querySelectorAll('[data-mm]').forEach(el => { el.textContent = el.dataset.mm; });
+
+    // Toggle panel open/close
+    const btnSpecs = document.getElementById('specs-toggle');
+    const panelSpecs = document.getElementById('specs-panel');
+    btnSpecs.addEventListener('click', () => {
+      const open = panelSpecs.classList.toggle('open');
+      btnSpecs.setAttribute('aria-expanded', open);
+      panelSpecs.setAttribute('aria-hidden', !open);
+    });
+
+    // mm <-> inch conversion
+    const btnUnit = document.getElementById('unit-toggle');
+    let inInch = false;
+    btnUnit.addEventListener('click', () => {
+      inInch = !inInch;
+      document.querySelectorAll('#spec-list li').forEach(li => {
+        const val = li.querySelector('[data-mm]');
+        const unit = li.querySelector('.unit');
+        const mm = parseFloat(val.dataset.mm);
+        if (inInch) {
+          val.textContent = (mm / 25.4).toFixed(2);
+          if (unit) unit.textContent = ' inch';
+          else li.appendChild(document.createTextNode(' inch'));
+        } else {
+          val.textContent = mm;
+          if (unit) unit.textContent = ' mm';
+        }
+      });
+      btnUnit.textContent = inInch ? 'Show in mm' : 'Show in inches';
+    });
+  </script>
+</body>
+
+</html>
